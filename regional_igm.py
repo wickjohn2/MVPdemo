@@ -69,7 +69,7 @@ def GenerateConfig(context):
                       'initializeParams': {
                           'sourceImage':
                               URL_BASE +
-                              'albatross-keving-sandbox/global/images/adlib-transformation-engine-image'
+                              'debian-cloud/global/images/family/debian-8'
                       }
                   }]
               }
