@@ -69,7 +69,7 @@ def GenerateConfig(context):
                       'initializeParams': {
                           'sourceImage':
                               URL_BASE +
-                              'albatross-keving-sandbox/zones/us-central1-a/disks/web-1'
+                              'albatross-keving-sandbox/global/images/webdemo'
                       }
                   }]
               }
