@@ -40,6 +40,7 @@ def GenerateConfig(context):
   port = context.properties['port']
   tp_name = deployment + '-tp'
   fr_name = deployment + '-fr'
+  hc_name = deployment + '-hc'
 
   # Create a dictionary which represents the resources
   # (Intstance Template, IGM, etc.)
@@ -52,6 +53,7 @@ def GenerateConfig(context):
               'properties': {
                   'machineType':
                       'n1-standard-2',
+                  'port': port,
                   'networkInterfaces': [{
                       'network':
                           URL_BASE + context.env['project'] +
@@ -73,14 +75,6 @@ def GenerateConfig(context):
                       }
                   }]
               }
-          }
-      },
-      {
-          # Load Balancer - this is two resource: TargetPool & ForwardingRule
-          'name': tp_name,
-          'type': 'compute.v1.targetPool',
-          'properties': {  
-            'region': region,  
           }
       },
       {
@@ -114,6 +108,23 @@ def GenerateConfig(context):
                   'coolDownPeriodSec': 90
               }
           }
+      },    
+      {
+          'name': hc_name + '-hc',
+          'type': 'compute.v1.httpHealthCheck',
+          'properties': {
+              'port': context.properties['port'],
+              'requestPath': '/_ah/health'
+          }
+      },
+      {
+         # Load Balancer - this is two resource: TargetPool & ForwardingRule
+         'name': tp_name,
+         'type': 'compute.v1.targetPool',
+         'properties': {  
+           'region': region, 
+           'healthChecks': ['$(ref.' + hc_name + '-hc.selfLink)']
+         }
       },
       {
           'name': fr_name,
@@ -123,7 +134,6 @@ def GenerateConfig(context):
               'portRange': port,
               'target': '$(ref.' + tp_name + '.selfLink)'
           }
-      }
+       }
   ]
-
   return {'resources': resources}
