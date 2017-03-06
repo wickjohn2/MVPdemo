@@ -53,7 +53,6 @@ def GenerateConfig(context):
               'properties': {
                   'machineType':
                       'n1-standard-2',
-                  'port': port,
                   'networkInterfaces': [{
                       'network':
                           URL_BASE + context.env['project'] +
