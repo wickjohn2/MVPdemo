@@ -110,8 +110,7 @@ def GenerateConfig(context):
           # Load Balancer - this is two resource: TargetPool & ForwardingRule
           'name': tp_name,
           'type': 'compute.v1.targetPool',
-          'properties': {
-            'healthChecks': URL_BASE + 'albatross-keving-sandbox/global/httpHealthChecks/http-health-check',  
+          'properties': {  
             'region': region,
             'instanceGroups': '$(ref.' + igm + '.selfLink)',  
           }
