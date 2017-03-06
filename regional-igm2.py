@@ -92,9 +92,9 @@ def GenerateConfig(context):
               'baseInstanceName': deployment + '-instance',
               'instanceTemplate': '$(ref.' + instance_template + '.selfLink)',
               'targetSize': 1,
+              'targetPool': '$(ref.' + tp_name + '.selfLink)',
               'autoHealingPolicies': [{
                   'initialDelaySec': 60
-              'targetPool': '$(ref.' + tp_name + '.selfLink)',
               }]
           }
       },
