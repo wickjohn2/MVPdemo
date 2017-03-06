@@ -53,6 +53,10 @@ def GenerateConfig(context):
               'properties': {
                   'machineType':
                       'n1-standard-2',
+                  'metadata':{
+                      'tags':
+                        'http-server',
+                  }
                   'networkInterfaces': [{
                       'network':
                           URL_BASE + context.env['project'] +
@@ -62,10 +66,6 @@ def GenerateConfig(context):
                           'type': 'ONE_TO_ONE_NAT'
                       }]
                   }],
-                 'metadata': {
-                    'tags':
-                        'http-server',
-                  }
                   'disks': [{
                       'deviceName': 'boot',
                       'type': 'PERSISTENT',
