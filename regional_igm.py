@@ -111,7 +111,9 @@ def GenerateConfig(context):
           'name': tp_name,
           'type': 'compute.v1.targetPool',
           'properties': {
-              'region': region,
+            'healthChecks': URL_BASE + 'albatross-keving-sandbox/global/httpHealthChecks/http-health-check',  
+            'region': region,
+            'instanceGroups': '$(ref.' + igm + '.selfLink)',  
           }
       },
       {
