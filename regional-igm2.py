@@ -62,6 +62,10 @@ def GenerateConfig(context):
                           'type': 'ONE_TO_ONE_NAT'
                       }]
                   }],
+                 'metadata': {
+                    'tags':
+                        'http-server',
+                  }
                   'disks': [{
                       'deviceName': 'boot',
                       'type': 'PERSISTENT',
