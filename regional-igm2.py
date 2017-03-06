@@ -53,10 +53,8 @@ def GenerateConfig(context):
               'properties': {
                   'machineType':
                       'n1-standard-2',
-                  'tags':{
-                      'items':
-                        'http-server'
-                  },
+                  'tags':
+                        'http-server',
                   'networkInterfaces': [{
                       'network':
                           URL_BASE + context.env['project'] +
