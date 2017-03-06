@@ -111,8 +111,15 @@ def GenerateConfig(context):
           'name': tp_name,
           'type': 'compute.v1.targetPool',
           'properties': {  
+            'region': region,  
+          }
+      },
+      {
+          'name': igm,
+          'type': 'compute.v1.regionInstanceGroupManager.setTargetPools',
+          'properties': {  
             'region': region,
-            'groups': '$(ref.' + igm + '.selfLink)',  
+            'targetPool': '$(ref.' + tp_name + '.selfLink)',  
           }
       },
       {
