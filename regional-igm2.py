@@ -55,7 +55,7 @@ def GenerateConfig(context):
                       'n1-standard-2',
                   'tags':{
                     'items': {
-                      'http-server': True
+                      'http-server': [1]
                   }
                   },
                   'networkInterfaces': [{
