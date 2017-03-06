@@ -56,7 +56,7 @@ def GenerateConfig(context):
                   'metadata':{
                       'tags':
                         'http-server'
-                  }
+                  },
                   'networkInterfaces': [{
                       'network':
                           URL_BASE + context.env['project'] +
