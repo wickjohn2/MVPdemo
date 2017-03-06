@@ -62,7 +62,7 @@ def GenerateConfig(context):
                       }]
                    'tags':
                       'http-server',
-                      'https-server'
+                      'https-server',
                   }],
                   'disks': [{
                       'deviceName': 'boot',
