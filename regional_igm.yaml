@@ -22,3 +22,4 @@ resources:
     region: us-central1
     minSize: 3
     maxSize: 12
+    port: 80
