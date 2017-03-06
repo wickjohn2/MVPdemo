@@ -86,6 +86,7 @@ def GenerateConfig(context):
               'targetSize': 1,
               'autoHealingPolicies': [{
                   'initialDelaySec': 60
+              'targetPool': '$(ref.' + tp_name + '.selfLink)',
               }]
           }
       },
@@ -112,14 +113,6 @@ def GenerateConfig(context):
           'type': 'compute.v1.targetPool',
           'properties': {  
             'region': region,  
-          }
-      },
-      {
-          'name': igm,
-          'type': 'compute.v1.regionInstanceGroupManager.setTargetPools',
-          'properties': {  
-            'region': region,
-            'targetPool': '$(ref.' + tp_name + '.selfLink)',  
           }
       },
       {
