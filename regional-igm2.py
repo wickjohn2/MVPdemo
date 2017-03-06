@@ -55,7 +55,6 @@ def GenerateConfig(context):
                       'n1-standard-2',
                   'tags':{
                     'items': URL_BASE + 'albatross-keving-sandbox/global/firewalls/default-allow-http'
-                  }
                   },
                   'networkInterfaces': [{
                       'network':
