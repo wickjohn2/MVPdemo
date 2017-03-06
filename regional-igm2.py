@@ -125,7 +125,7 @@ def GenerateConfig(context):
          'properties': {  
            'target': '$(ref.' + igm + '.selfLink)',
            'region': region, 
-           'healthChecks': '$(ref.' + hc_name + '-hc.selfLink)'
+           'healthChecks': ['$(ref.' + hc_name + '-hc.selfLink)']
          }
       },
       {
