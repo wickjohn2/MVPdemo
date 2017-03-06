@@ -1,5 +1,5 @@
 imports:
-- path: generated.jinja
+- path: genconfig.py
 resources:
 - name: generated
-  type: generated.jinja
+  type: genconfig.py
