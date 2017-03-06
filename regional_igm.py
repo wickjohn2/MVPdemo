@@ -72,11 +72,10 @@ def GenerateConfig(context):
                               'albatross-keving-sandbox/global/images/web-image-1'
                       }
                   }]
-                  'tags': [{
-                    'items': 
-                      'http-server',
-                      'https-server'
-                  }]
+                  'tags': {
+                    'http-server',
+                    'https-server'
+                  }
               }
           }
       },
