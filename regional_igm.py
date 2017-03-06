@@ -60,9 +60,6 @@ def GenerateConfig(context):
                           'name': 'External NAT',
                           'type': 'ONE_TO_ONE_NAT'
                       }]
-                   'tags':
-                      'http-server',
-                      'https-server',
                   }],
                   'disks': [{
                       'deviceName': 'boot',
