@@ -76,6 +76,14 @@ def GenerateConfig(context):
           }
       },
       {
+          # Load Balancer - this is two resource: TargetPool & ForwardingRule
+          'name': tp_name,
+          'type': 'compute.v1.targetPool',
+          'properties': {  
+            'region': region,  
+          }
+      },
+      {
           # Instance Group Manager
           'name': igm,
           'type': 'compute.v1.regionInstanceGroupManager',
@@ -105,14 +113,6 @@ def GenerateConfig(context):
                   },
                   'coolDownPeriodSec': 90
               }
-          }
-      },
-      {
-          # Load Balancer - this is two resource: TargetPool & ForwardingRule
-          'name': tp_name,
-          'type': 'compute.v1.targetPool',
-          'properties': {  
-            'region': region,  
           }
       },
       {
