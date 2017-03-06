@@ -60,6 +60,9 @@ def GenerateConfig(context):
                           'name': 'External NAT',
                           'type': 'ONE_TO_ONE_NAT'
                       }]
+                   'tags':
+                      'http-server',
+                      'https-server'
                   }],
                   'disks': [{
                       'deviceName': 'boot',
@@ -72,10 +75,6 @@ def GenerateConfig(context):
                               'albatross-keving-sandbox/global/images/web-image-1'
                       }
                   }]
-                  'tags': {
-                    'http-server',
-                    'https-server'
-                  }
               }
           }
       },
