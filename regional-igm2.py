@@ -54,10 +54,9 @@ def GenerateConfig(context):
                   'machineType':
                       'n1-standard-2',
                   'tags':{
-                    'items': [{
-                      'key': 'http-server',
-                      'value': True
-                  }]
+                    'items': {
+                      'http-server': True
+                  }
                   },
                   'networkInterfaces': [{
                       'network':
