@@ -58,7 +58,7 @@ def GenerateConfig(context):
                       'key': 'http-server',
                       'value': True
                   }]
-                  }
+                  },
                   'networkInterfaces': [{
                       'network':
                           URL_BASE + context.env['project'] +
