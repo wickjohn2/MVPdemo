@@ -112,7 +112,7 @@ def GenerateConfig(context):
           'type': 'compute.v1.targetPool',
           'properties': {  
             'region': region,
-            'instanceGroups': '$(ref.' + igm + '.selfLink)',  
+            'instances': '$(ref.' + igm + '.selfLink)',  
           }
       },
       {
