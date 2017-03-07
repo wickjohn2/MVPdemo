@@ -24,14 +24,14 @@ resources:
     minSize: 3
     maxSize: 12
     port: 80
-    image: <insert>
+    image: albatross-keving-sandbox/global/images/adlib-transformation-engine-image
 
 # being with image URL after project/ example: projects/albatross-keving-sandbox/global/images/web-image-1
     
 - name: sql-mgmt-instance
   type: win_vm.py
   properties:
-    region: us-central1
-    image: <insert>
+    zone: us-central1-f
+    image: albatross-keving-sandbox/global/images/adlib-transformation-engine-image
 
 # being with image URL after project/ example: projects/albatross-keving-sandbox/global/images/web-image-1
