@@ -47,7 +47,11 @@ def GenerateConfig(context):
           'name': mgmt,
           'type': 'compute.v1.instance',
           'properties': {
-              'machineType': 'n1-standard-4',
+              'zone': zone,
+              'machineType': ''.join([URL_BASE,
+                                  context.env['project'], '/zones/',
+                                  context.properties['zone'],
+                                  '/machineTypes/n1-standard-4']),
               'sourceImage': URL_BASE + context.properties['image'],
               'tags':{
                   'items': ['http-server']  
