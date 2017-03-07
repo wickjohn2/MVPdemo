@@ -64,12 +64,6 @@ def GenerateConfig(context):
                       'name': 'External NAT',
                       'type': 'ONE_TO_ONE_NAT'
                       }]
-               }],
-               'disks': [{
-                  'deviceName': 'boot',
-                  'type': 'PERSISTENT',
-                  'boot': True,
-                  'autoDelete': True,
                }]
           }
       }
