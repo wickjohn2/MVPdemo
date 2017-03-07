@@ -85,6 +85,7 @@ def GenerateConfig(context):
           'type': 'compute.v1.regionInstanceGroupManager',
           'properties': {
               'region': region,
+              'targetPools': ['$(ref.' + tp_name + '.selfLink)'],
               'baseInstanceName': deployment + '-instance',
               'instanceTemplate': '$(ref.' + instance_template + '.selfLink)',
               'targetSize': 1,
@@ -125,7 +126,6 @@ def GenerateConfig(context):
          'properties': {  
            'region': region, 
            'healthChecks': ['$(ref.' + hc_name + '-hc.selfLink)'],
-           'instanceGroups': '$(ref.' + igm + '.selfLink)'
          }
       },
       {
