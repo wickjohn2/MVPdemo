@@ -1,5 +1,0 @@
-imports:
-- path: genconfig.py
-resources:
-- name: generated
-  type: genconfig.py
