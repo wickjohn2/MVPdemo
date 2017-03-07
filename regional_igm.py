@@ -123,9 +123,9 @@ def GenerateConfig(context):
          'name': tp_name,
          'type': 'compute.v1.targetPool',
          'properties': {  
-           'target': '$(ref.' + igm + '.selfLink)',
            'region': region, 
-           'healthChecks': ['$(ref.' + hc_name + '-hc.selfLink)']
+           'healthChecks': ['$(ref.' + hc_name + '-hc.selfLink)'],
+           'instanceGroups': '$(ref.' + igm + '.selfLink)'
          }
       },
       {
