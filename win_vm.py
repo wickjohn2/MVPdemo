@@ -52,7 +52,6 @@ def GenerateConfig(context):
                                   context.env['project'], '/zones/',
                                   context.properties['zone'],
                                   '/machineTypes/n1-standard-4']),
-              'sourceImage': URL_BASE + context.properties['image'],
               'tags':{
                   'items': ['http-server']  
               },
@@ -64,7 +63,17 @@ def GenerateConfig(context):
                       'name': 'External NAT',
                       'type': 'ONE_TO_ONE_NAT'
                       }]
-               }]
+               }],
+              'disks': [{
+                  'deviceName': 'boot',
+                  'type': 'PERSISTENT',
+                  'boot': True,
+                  'autoDelete': True,
+                  'initializeParams': {
+                      'diskName': 'disk-' + context.env['deployment'],
+                      'sourceImage': URL_BASE + context.properties['image']
+                  }
+              }]
           }
       }
   ]
