@@ -38,8 +38,6 @@ def GenerateConfig(context):
   igm = deployment + '-igm'
   region = context.properties['region']
   port = context.properties['port']
-  tp_name = deployment + '-tp'
-  fr_name = deployment + '-fr'
   hc_name = deployment + '-hc'
 
   # Create a dictionary which represents the resources
@@ -72,8 +70,7 @@ def GenerateConfig(context):
                       'autoDelete': True,
                       'initializeParams': {
                           'sourceImage':
-                              URL_BASE +
-                              'albatross-keving-sandbox/global/images/web-image-1'
+                              URL_BASE + context.properties['image']
                       }
                   }]
               }
@@ -118,24 +115,5 @@ def GenerateConfig(context):
               'requestPath': '/_ah/health'
           }
       },
-      {
-         # Load Balancer - this is two resource: TargetPool & ForwardingRule
-         'name': tp_name,
-         'type': 'compute.v1.targetPool',
-         'properties': {  
-           'target': '$(ref.' + igm + '.selfLink)',
-           'region': region, 
-           'healthChecks': ['$(ref.' + hc_name + '-hc.selfLink)']
-         }
-      },
-      {
-          'name': fr_name,
-          'type': 'compute.v1.forwardingRule',
-          'properties': {
-              'region': region,
-              'portRange': port,
-              'target': '$(ref.' + tp_name + '.selfLink)'
-          }
-       }
   ]
   return {'resources': resources}
