@@ -20,7 +20,7 @@ def GenerateConfig(context):
           'name': context.env['name'],
           'type': 'compute.v1.regionInstanceGroupManager',
           'properties': {
-              'region': region,
+              'region': context.properties['region'],
               'baseInstanceName': context.env['name'],
               'instanceTemplate': context.properties['instanceTemplate'],
               'targetSize': 1,
