@@ -7,10 +7,10 @@
 
 # Required to provide instance image
 
-URL = 'https://www.googleapis.com/compute/v1/projects/'
-
 def GenerateConfig(context):
 # Generates the configuration."""
+
+URL = 'https://www.googleapis.com/compute/v1/projects/'
 
 # Create a dictionary which represents the resources
 
