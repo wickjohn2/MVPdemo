@@ -1,0 +1,14 @@
+imports:
+- path: instance-template.py
+
+resources:
+- name: app-template
+  type: instance-template.py
+  properties:
+    description: 'App Tier in East Region'
+    region: 'us-east1'
+    machineType: 'n1-standard-2'
+    network: 'albatross-johnw-sandbox/regions/us-east1/subnetworks/app'
+    sourceImage: 'albatross-johnw-sandbox/zones/us-central1-f/disks/app-instance-1' 
+    diskSize: 50
+    tags: [http]  
