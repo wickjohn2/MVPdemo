@@ -9,6 +9,6 @@ resources:
     region: 'us-east1'
     machineType: 'n1-standard-2'
     subnetwork: '/regions/us-east1/subnetworks/app'
-    sourceImage: 'albatross-johnw-sandbox/global/images/app-image-east'
+    sourceImage: '/global/images/app-image-east'
     diskSize: 50
     tags: [http]
