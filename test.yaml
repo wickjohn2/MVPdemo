@@ -1,5 +1,6 @@
 imports:
 - path: instance-template.py
+- path: managed-instance-group.py
 - path: app-build.py
 
 resources:
