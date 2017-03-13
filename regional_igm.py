@@ -59,7 +59,7 @@ def GenerateConfig(context):
                   'networkInterfaces': [{
                       'network':
                           URL_BASE + context.env['project'] +
-                          '/global/networks/default',
+                          '/global/networks/demo-mvp',
                       'accessConfigs': [{
                           'name': 'External NAT',
                           'type': 'ONE_TO_ONE_NAT'
