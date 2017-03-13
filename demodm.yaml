@@ -1,0 +1,17 @@
+imports:
+- path: instance-template.py
+- path: managed-instance-group.py
+- path: autoscaling.py
+- path: app-build.py
+
+resources:
+- name: app-ig
+  type: app-build.py
+  properties:
+    description: 'App Tier in East Region'
+    region: 'us-east1'
+    machineType: 'n1-standard-2'
+  network:'albatross-johnw-sandbox/regions/us-east1/subnetworks/app'
+  sourceImage: 'albatross-johnw-sandbox/zones/us-central1-f/disks/app-instance-1' 
+  diskSize: 50
+  tags: [http]   
