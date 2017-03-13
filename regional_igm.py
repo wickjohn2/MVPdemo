@@ -73,7 +73,7 @@ def GenerateConfig(context):
                       'initializeParams': {
                           'sourceImage':
                               URL_BASE +
-                              'albatross-johnw-sandbox/global/images/app-instance-image'
+                              'albatross-johnw-sandbox/global/images/app-image-east'
                       }
                   }]
               }
