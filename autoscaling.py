@@ -1,7 +1,7 @@
-"""Build Application Tier from Components"""
+#Build Application Tier from Components
 
 def GenerateConfig(context):
-  """Generates the configuration."""
+  # Generates the configuration."""
 
   # Create a dictionary which represents the resources
 
