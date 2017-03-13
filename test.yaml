@@ -1,9 +1,10 @@
 imports:
 - path: instance-template.py
+- path: app-build.py
 
 resources:
-- name: app-template
-  type: instance-template.py
+- name: app
+  type: app-build.py
   properties:
     description: 'App Tier in East Region'
     region: 'us-east1'
