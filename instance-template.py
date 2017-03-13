@@ -1,28 +1,36 @@
-# Create an Instance Template""
+# Instance Template to define the properties for each VM
+# The image and machine size are hardcoded. They could be parameterized
 
-# Instance Template to define the properties for each VM in a managed
-# instance group
 
-# This will be used to build the Web and App Tiers
+URL_BASE = 'https://www.googleapis.com/compute/v1/projects/'
 
-# Required to provide instance image
+# Every Python Template needs to have the GenerateConfig() or generate_config()
+# method
+# This method is called by DM in expansion and must return either:
+#    - the yaml format required by DM
+#    - a python dictionary representing the yaml (this is more efficient)
+
 
 def GenerateConfig(context):
-# Generates the configuration."""
+  """Generates the configuration."""
 
-URL = 'https://www.googleapis.com/compute/v1/projects/'
-
-# Create a dictionary which represents the resources
-
+  # Create a dictionary which represents the resources
+  # (Intstance Template, IGM, etc.)
   resources = [
       {
-          'name': context.env['name'],
+          'name': context.env['name'] + '-template',
           'type': 'compute.v1.instanceTemplate',
           'properties': {
               'properties': {
-                  'machineType': context.properties[‘machineType’],
+                  'machineType':
+                      'n1-standard-2',
+                  'tags':{
+                    'items': ['http-server']  
+                  },
                   'networkInterfaces': [{
-                      'network': URL + context.properties['network'],
+                      'subnetwork':
+                          URL_BASE + context.env['project'] +
+                          '/regions/us-east1/subnetworks/app',
                       'accessConfigs': [{
                           'name': 'External NAT',
                           'type': 'ONE_TO_ONE_NAT'
@@ -32,20 +40,15 @@ URL = 'https://www.googleapis.com/compute/v1/projects/'
                       'deviceName': 'boot',
                       'type': 'PERSISTENT',
                       'boot': True,
-                      'mode': 'READ_WRITE',
                       'autoDelete': True,
                       'initializeParams': {
-                          'sourceImage':     
-                              context.properties['sourceImage'],
-                          'diskSizeGb':     
-                              context.properties['diskSize']
+                          'sourceImage':
+                              URL_BASE +
+                              'albatross-johnw-sandbox/global/images/app-image-east'
                       }
-                  }],
-                  'tags': {
-                      'items': context.properties['tags']  
-                  }
+                  }]
               }
           }
-      }
+      },
   ]
-return {'resources': resources}:
+  return {'resources': resources}
