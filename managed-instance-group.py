@@ -30,4 +30,4 @@ def GenerateConfig(context):
           }
       },
   ]
-    return {'resources': resources}
+  return {'resources': resources}
