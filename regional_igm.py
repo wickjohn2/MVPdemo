@@ -57,10 +57,7 @@ def GenerateConfig(context):
                     'items': ['http-server']  
                   },
                   'networkInterfaces': [{
-                      'network':
-                          URL_BASE + context.env['project'] +
-                          '/global/networks/demo-mvp',
-                       'subnetworks':
+                      'subnetwork':
                           URL_BASE + context.env['project'] +
                           '/regions/us-east1/subnetworks/app',
                       'accessConfigs': [{
