@@ -19,7 +19,7 @@ resources:
 - name: frontend
   type: regional_igm.py
   properties:
-    region: us-central1
+    region: us-east1
     minSize: 3
     maxSize: 12
     port: 80
