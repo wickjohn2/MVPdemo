@@ -47,7 +47,7 @@ def GenerateConfig(context):
   resources = [
       {
           # Create the Instance Template
-          'name': context.env['name'],
+          'name': context.env['name'] + '-it',
           'type': 'compute.v1.instanceTemplate',
           'properties': {
               'properties': {
