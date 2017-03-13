@@ -30,7 +30,7 @@ def GenerateConfig(context):
                   'networkInterfaces': [{
                       'subnetwork':
                           URL_BASE + context.env['project'] +
-                          '/regions/us-east1/subnetworks/app',
+                          context.properties['subnetwork'],
                       'accessConfigs': [{
                           'name': 'External NAT',
                           'type': 'ONE_TO_ONE_NAT'
@@ -43,8 +43,8 @@ def GenerateConfig(context):
                       'autoDelete': True,
                       'initializeParams': {
                           'sourceImage':
-                              URL_BASE +
-                              'albatross-johnw-sandbox/global/images/app-image-east'
+                              URL_BASE + context.env['project'] +
+                              context.properties['sourceImage']
                       }
                   }]
               }
