@@ -60,6 +60,9 @@ def GenerateConfig(context):
                       'network':
                           URL_BASE + context.env['project'] +
                           '/global/networks/demo-mvp',
+                       'subnetworks':
+                          URL_BASE + context.env['project'] +
+                          '/regions/us-east1/subnetworks/app',
                       'accessConfigs': [{
                           'name': 'External NAT',
                           'type': 'ONE_TO_ONE_NAT'
