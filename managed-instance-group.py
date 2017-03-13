@@ -1,10 +1,10 @@
-"""Creates a managed instance group."""
+# Creates a managed instance group.
 
 
 # This will be used to build the Web and App Tiers
 
 def GenerateConfig(context):
-  """Generates the configuration."""
+# Generates the configuration
 
 # Create a dictionary which represents the resources
 
