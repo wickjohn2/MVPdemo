@@ -1,4 +1,4 @@
-"""Create an Instance Template""
+# Create an Instance Template""
 
 # Instance Template to define the properties for each VM in a managed
 # instance group
@@ -10,7 +10,7 @@
 URL = 'https://www.googleapis.com/compute/v1/projects/'
 
 def GenerateConfig(context):
-  """Generates the configuration."""
+# Generates the configuration."""
 
 # Create a dictionary which represents the resources
 
