@@ -33,7 +33,7 @@ URL_BASE = 'https://www.googleapis.com/compute/v1/projects/'
 def GenerateConfig(context):
   """Generates the configuration."""
 
-  deployment = context.env['deployment']
+  deployment = context.env['name']
   instance_template = deployment + '-it'
   igm = deployment + '-igm'
   region = context.properties['region']
