@@ -28,6 +28,6 @@ def GenerateConfig(context):
                   'initialDelaySec': 60
               }]
           }
-      }
+      },
   ]
-  return: {'resources': resources}
+    return {'resources': resources}
