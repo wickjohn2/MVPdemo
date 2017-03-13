@@ -1,38 +1,29 @@
-# Build Application Tier from Components
+# Instance Template to define the properties for each VM
+# The image and machine size are hardcoded. They could be parameterized
+
+URL_BASE = 'https://www.googleapis.com/compute/v1/projects/'
+
+# Every Python Template needs to have the GenerateConfig() or generate_config()
+# method
+# This method is called by DM in expansion and must return either:
+#    - the yaml format required by DM
+#    - a python dictionary representing the yaml (this is more efficient)
 
 def GenerateConfig(context):
+  """Generates the configuration."""
 
-  resources = [{
-    'name': ''.join([context.env['name'], '-template']),
-    'type': instance-template.py,
-    'properties': {
-       'description': ''.join(['Instance Template for ', context.properties['description']]),
-       'machineType': context.properties['machineType'],
-       'network': context.properties['network'],
-       'sourceImage': context.properties['sourceImage'],
-       'diskSize': context.properties['diskSize'],
-       'tags': context.properties['tags'],
-    }
-}, {
-    'name': ''.join([context.env['name'], '-ig']),
-    'type': managed-instance-group.py,
-    'properties': {
-       'description': ''.join(['Managed Instance Group for ', context.properties['description']]),
-       'instanceTemplate': ''.join(['$ref.', context.env['name'], '-template.selflink']),
-       'region': context.properties['region']
-    }
-},
-   {
-   'name': ''.join([context.env['name'], '-as']),
-    'type': autoscaler.py,
-    'properties': {
-       'description': ''.join(['Autoscaling for ', context.properties['description']]),
-       'managedInstanceGroup': ''.join(['$ref.', context.env['name'], '-ig.selflink']),
-      'region': context.properties['region'],
-      'minSize': context.properties['minSize'],
-      'maxSize': context.properties['maxSize'],
-      'cpuUtil': context.properties['cpuUtil']
-  }
-}
-]
-return {'resources': resources}
+  # Create a dictionary which represents the resources
+  # (Intstance Template, IGM, etc.)
+  resources = [
+      {
+          'name': context.env['name'],
+          'type': 'instance-template.py',
+            'properties': {
+              'machineType': context.properties['machineType'],
+              'tags': context.properties['tags'],
+              'subnetwork': context.properties['subnetwork'],
+              'sourceImage': context.properties['sourceImage']
+            }
+      }
+  ]
+  return {'resources': resources}
