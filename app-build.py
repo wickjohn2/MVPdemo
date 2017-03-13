@@ -14,7 +14,7 @@ def GenerateConfig(context):
   # (Intstance Template, IGM, etc.)
   resources = [
       {
-          'name': context.env['name'],
+          'name': context.env['name'] + '-template',
           'type': 'instance-template.py',
             'properties': {
               'region': context.properties['region'],
@@ -24,6 +24,14 @@ def GenerateConfig(context):
               'sourceImage': context.properties['sourceImage'],
               'diskSize': context.properties['diskSize']
             }
-      }
+      },
+     {
+          'name': context.env['name'] + '-ig',
+          'type': 'managed-instance-group.py',
+            'properties': {
+              'region': context.properties['region'],
+              'instanceTemplate': '$(ref.' + context.env['name'] + '-template' + '.selfLink)'
+            }
+     }
   ]
   return {'resources': resources}
