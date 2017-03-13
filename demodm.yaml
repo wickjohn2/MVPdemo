@@ -11,7 +11,10 @@ resources:
     description: 'App Tier in East Region'
     region: 'us-east1'
     machineType: 'n1-standard-2'
-  network:'albatross-johnw-sandbox/regions/us-east1/subnetworks/app'
-  sourceImage: 'albatross-johnw-sandbox/zones/us-central1-f/disks/app-instance-1' 
-  diskSize: 50
-  tags: [http]   
+    network:'albatross-johnw-sandbox/regions/us-east1/subnetworks/app'
+    sourceImage: 'albatross-johnw-sandbox/zones/us-central1-f/disks/app-instance-1' 
+    diskSize: 50
+    cpuUtil: 80
+    minSize: 2
+    maxSize: 5
+    tags: [http]   
