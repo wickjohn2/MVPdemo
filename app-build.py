@@ -1,4 +1,4 @@
-"""Build Application Tier from Components"""
+# Build Application Tier from Components
 
 def GenerateConfig(context):
 
