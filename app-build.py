@@ -33,7 +33,7 @@ def GenerateConfig(context):
           'type': 'managed-instance-group.py',
             'properties': {
               'region': context.properties['region'],
-              'instanceTemplate': ''.join(['$(ref.',context.env['name'],'-template.selfLink)'])
+              'instanceTemplate': '$(ref.' + context.env['name'] + '-template.selfLink)'
             }
      }
   ]
