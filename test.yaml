@@ -7,10 +7,10 @@ resources:
 - name: app
   type: app-build.py
   properties:
-    description: 'App Tier in East Region'
+    description: 'App Tier'
     region: 'us-east1'
     machineType: 'n1-standard-2'
-    subnetwork: '/regions/us-east1/subnetworks/app'
-    sourceImage: '/global/images/app-image-east'
+    subnetwork: 'app'
+    sourceImage: 'app-image-east'
     diskSize: 50
     tags: [http]
