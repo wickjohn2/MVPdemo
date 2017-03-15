@@ -9,6 +9,9 @@
 
 def GenerateConfig(context):
   """Generates the configuration."""
+  
+  URL_SUBNETS = 'https://www.googleapis.com/compute/v1/projects/' + context.env['project'] + '/regions/' + context.properties['region'] + '/subnetworks/'
+  URL_IMAGES = 'https://www.googleapis.com/compute/v1/projects/' + context.env['project'] + '/global/images/'
 
   # Create a dictionary which represents the resources
   # (Intstance Template, IGM, etc.)
@@ -20,8 +23,8 @@ def GenerateConfig(context):
               'region': context.properties['region'],
               'machineType': context.properties['machineType'],
               'tags': context.properties['tags'],
-              'subnetwork': context.properties['subnetwork'],
-              'sourceImage': context.properties['sourceImage'],
+              'subnetwork': URL_SUBNETS + context.properties['subnetwork'],
+              'sourceImage': URL_IMAGES + context.properties['sourceImage'],
               'diskSize': context.properties['diskSize']
             }
       },
