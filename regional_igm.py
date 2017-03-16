@@ -51,15 +51,14 @@ def GenerateConfig(context):
           'type': 'compute.v1.instanceTemplate',
           'properties': {
               'properties': {
-                  'machineType':
-                      'n1-standard-2',
+                  'machineType': 'n1-standard-2',
                   'tags':{
                     'items': ['http-server']  
                   },
                   'networkInterfaces': [{
-                      'subnetwork':
+                      'network':
                           URL_BASE + context.env['project'] +
-                          '/regions/us-east1/subnetworks/app',
+                          '/global/networks/default',
                       'accessConfigs': [{
                           'name': 'External NAT',
                           'type': 'ONE_TO_ONE_NAT'
@@ -72,8 +71,7 @@ def GenerateConfig(context):
                       'autoDelete': True,
                       'initializeParams': {
                           'sourceImage':
-                              URL_BASE +
-                              'albatross-johnw-sandbox/global/images/app-image-east'
+                              URL_BASE + context.env['project'] + '/global/images/web-image-1'
                       }
                   }]
               }
